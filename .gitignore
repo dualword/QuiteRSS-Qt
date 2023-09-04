@@ -8,3 +8,11 @@ release
 Makefile*
 src/VersionRev.h
 QuiteRSS.pro.user*
+
+#
+/.cproject
+/.project
+/.externalToolBuilders
+/.settings
+.qmake.stash
+ui_*.h

@@ -1,3 +1,4 @@
+/* QuiteRSS-Qt (2023) http://github.com/dualword/QuiteRSS-Qt License:GNU GPL*/
 /* ============================================================
 * QuiteRSS is a open-source cross-platform RSS/Atom news feeds reader
 * Copyright (C) 2011-2020 QuiteRSS Team <quiterssteam@gmail.com>
@@ -36,6 +37,18 @@ AboutDialog::AboutDialog(const QString &lang, QWidget *parent) :
   setMinimumWidth(480);
 
   QTabWidget *tabWidget = new QTabWidget();
+
+  QString txt = "QuiteRSS-Qt - modified version of QuiteRSS<br/>";
+  txt += "Source code: <a href='https://github.com/dualword/QuiteRSS-Qt'>QuiteRSS-Qt</a><br/>";
+  txt += "License: GNU GPL<center/>";
+  QLabel *lbl = new QLabel(txt);
+  lbl->setOpenExternalLinks(true);
+  lbl->setTextInteractionFlags(Qt::TextBrowserInteraction);
+
+  QHBoxLayout *qtLayout = new QHBoxLayout();
+  qtLayout->addWidget(lbl);
+  QWidget *qtWidget = new QWidget();
+  qtWidget->setLayout(qtLayout);
 
   QString revisionStr;
   if (QString("%1").arg(VCS_REVISION) != "0") {
@@ -155,6 +168,7 @@ AboutDialog::AboutDialog(const QString &lang, QWidget *parent) :
   QWidget *informationWidget = new QWidget();
   informationWidget->setLayout(informationLayout);
 
+  tabWidget->addTab(qtWidget, tr("QuiteRSS-Qt"));
   tabWidget->addTab(mainWidget, tr("Version"));
   tabWidget->addTab(authorsWidget, tr("Authors"));
   tabWidget->addTab(historyWidget, tr("History"));

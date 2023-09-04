@@ -1,3 +1,4 @@
+/* QuiteRSS-Qt (2023) http://github.com/dualword/QuiteRSS-Qt License:GNU GPL*/
 /* ============================================================
 * QuiteRSS is a open-source cross-platform RSS/Atom news feeds reader
 * Copyright (C) 2011-2020 QuiteRSS Team <quiterssteam@gmail.com>
@@ -1878,9 +1879,9 @@ void MainWindow::createMenu()
   toolsMenu_->addAction(optionsAct_);
 
   helpMenu_ = new QMenu(this);
-  helpMenu_->addAction(updateAppAct_);
-  helpMenu_->addSeparator();
+  //helpMenu_->addAction(updateAppAct_);
   helpMenu_->addAction(reportProblemAct_);
+  helpMenu_->addSeparator();
   helpMenu_->addAction(aboutAct_);
 
 #ifndef Q_OS_MAC
@@ -3340,9 +3341,9 @@ void MainWindow::showOptionDlg(int index)
   bool showCloseButtonTab = settings.value("Settings/showCloseButtonTab", true).toBool();
   optionsDialog_->showCloseButtonTab_->setChecked(showCloseButtonTab);
 
-  bool updateCheckEnabled = settings.value("Settings/updateCheckEnabled", true).toBool();
+  bool updateCheckEnabled = settings.value("Settings/updateCheckEnabled", false).toBool();
   optionsDialog_->updateCheckEnabled_->setChecked(updateCheckEnabled);
-  bool statisticsEnabled = settings.value("Settings/statisticsEnabled2", true).toBool();
+  bool statisticsEnabled = settings.value("Settings/statisticsEnabled2", false).toBool();
   optionsDialog_->statisticsEnabled_->setChecked(statisticsEnabled);
 
   bool storeDBMemory_ = settings.value("Settings/storeDBMemory", true).toBool();

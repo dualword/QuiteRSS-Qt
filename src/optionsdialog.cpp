@@ -1,3 +1,4 @@
+/* QuiteRSS-Qt (2023) http://github.com/dualword/QuiteRSS-Qt License:GNU GPL*/
 /* ============================================================
 * QuiteRSS is a open-source cross-platform RSS/Atom news feeds reader
 * Copyright (C) 2011-2020 QuiteRSS Team <quiterssteam@gmail.com>
@@ -343,8 +344,8 @@ void OptionsDialog::createGeneralWidget()
   generalLayout->addWidget(autoRunEnabled_);
 #endif
 
-  generalLayout->addWidget(updateCheckEnabled_);
-  generalLayout->addWidget(statisticsEnabled_);
+  //generalLayout->addWidget(updateCheckEnabled_);
+  //generalLayout->addWidget(statisticsEnabled_);
   generalLayout->addWidget(storeDBMemory_);
   generalLayout->addWidget(saveDBMemFileWidget);
   generalLayout->addStretch(1);
