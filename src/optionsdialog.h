@@ -1,3 +1,4 @@
+/* QuiteRSS-Qt (2023) http://github.com/dualword/QuiteRSS-Qt License:GNU GPL*/
 /* ============================================================
 * QuiteRSS is a open-source cross-platform RSS/Atom news feeds reader
 * Copyright (C) 2011-2020 QuiteRSS Team <quiterssteam@gmail.com>
@@ -54,6 +55,7 @@ public:
   QCheckBox *autocollapseFolder_;
   QCheckBox *updateCheckEnabled_;
   QCheckBox *statisticsEnabled_;
+  QCheckBox *rndUserAgent_;
   QCheckBox *storeDBMemory_;
   QSpinBox *saveDBMemFileInterval_;
 

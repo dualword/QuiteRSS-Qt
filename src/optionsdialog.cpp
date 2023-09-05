@@ -298,8 +298,8 @@ void OptionsDialog::createGeneralWidget()
   autocollapseFolder_ = new QCheckBox(tr("Automatically collapse folders"));
   showCloseButtonTab_ = new QCheckBox(tr("Show close button on tab"));
 
-  updateCheckEnabled_ = new QCheckBox(tr("Automatically check for updates"));
-  statisticsEnabled_ = new QCheckBox(tr("Help improve QuiteRSS by sending usage information"));
+  rndUserAgent_ = new QCheckBox(tr("Choose random User Agent from a file"));
+  rndUserAgent_->setToolTip("Data directory/user-agent.txt");
   storeDBMemory_ = new QCheckBox(tr("Store a DB in memory (requires program restart)"));
   storeDBMemory_->setChecked(false);
   saveDBMemFileInterval_ = new QSpinBox();
@@ -344,8 +344,7 @@ void OptionsDialog::createGeneralWidget()
   generalLayout->addWidget(autoRunEnabled_);
 #endif
 
-  //generalLayout->addWidget(updateCheckEnabled_);
-  //generalLayout->addWidget(statisticsEnabled_);
+  generalLayout->addWidget(rndUserAgent_);
   generalLayout->addWidget(storeDBMemory_);
   generalLayout->addWidget(saveDBMemFileWidget);
   generalLayout->addStretch(1);

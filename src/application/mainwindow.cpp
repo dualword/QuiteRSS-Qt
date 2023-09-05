@@ -3341,10 +3341,8 @@ void MainWindow::showOptionDlg(int index)
   bool showCloseButtonTab = settings.value("Settings/showCloseButtonTab", true).toBool();
   optionsDialog_->showCloseButtonTab_->setChecked(showCloseButtonTab);
 
-  bool updateCheckEnabled = settings.value("Settings/updateCheckEnabled", false).toBool();
-  optionsDialog_->updateCheckEnabled_->setChecked(updateCheckEnabled);
-  bool statisticsEnabled = settings.value("Settings/statisticsEnabled2", false).toBool();
-  optionsDialog_->statisticsEnabled_->setChecked(statisticsEnabled);
+  bool rndUserAgentEnabled = settings.value("Settings/rndUserAgent", false).toBool();
+  optionsDialog_->rndUserAgent_->setChecked(rndUserAgentEnabled);
 
   bool storeDBMemory_ = settings.value("Settings/storeDBMemory", true).toBool();
   optionsDialog_->storeDBMemory_->setChecked(storeDBMemory_);
@@ -3751,10 +3749,8 @@ void MainWindow::showOptionDlg(int index)
 
   pushButtonNull_->setVisible(showToggleFeedsTree_);
 
-  updateCheckEnabled = optionsDialog_->updateCheckEnabled_->isChecked();
-  settings.setValue("Settings/updateCheckEnabled", updateCheckEnabled);
-  statisticsEnabled = optionsDialog_->statisticsEnabled_->isChecked();
-  settings.setValue("Settings/statisticsEnabled2", statisticsEnabled);
+  rndUserAgentEnabled = optionsDialog_->rndUserAgent_->isChecked();
+  settings.setValue("Settings/rndUserAgent", rndUserAgentEnabled);
 
   storeDBMemory_ = optionsDialog_->storeDBMemory_->isChecked();
   settings.setValue("Settings/storeDBMemory", storeDBMemory_);

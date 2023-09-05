@@ -1,3 +1,4 @@
+/* QuiteRSS-Qt (2023) http://github.com/dualword/QuiteRSS-Qt License:GNU GPL*/
 /* ============================================================
 * QuiteRSS is a open-source cross-platform RSS/Atom news feeds reader
 * Copyright (C) 2011-2020 QuiteRSS Team <quiterssteam@gmail.com>
@@ -27,6 +28,8 @@
 #include <QCoreApplication>
 #include <QDir>
 #include <QStringBuilder>
+#include <QRandomGenerator>
+#include <QTextStream>
 
 #include "settings.h"
 
@@ -85,6 +88,7 @@ void Globals::init()
     dir.mkpath(dataDir_);
   }
 
+  QString path(dataDir_);
   // settings ...
   QSettings::setDefaultFormat(QSettings::IniFormat);
   QString settingsFileName;
@@ -96,6 +100,22 @@ void Globals::init()
   settings.beginGroup("Settings");
   noDebugOutput_ = settings.value("noDebugOutput", true).toBool();
   userAgent_ = settings.value("userAgent", "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36").toString();
+
+  if(settings.value("rndUserAgent", false).toBool()) {
+	QList<QString> arr;
+	QFile file(path.append(QDir::separator()).append("user-agent.txt"));
+	if (file.open(QFile::ReadOnly)) {
+	  QTextStream stream(&file);
+	  QString line;
+      while (stream.readLineInto(&line)) {
+    	  line = line.trimmed();
+    	  if (line.startsWith("#") || line.length() <= 0) continue;
+          arr.append(line);
+      }
+	}
+	file.close();
+	if(arr.size() > 0) userAgent_ = arr[QRandomGenerator::global()->bounded(arr.size())];
+  }
 
   isInit_ = true;
 }
