@@ -96,8 +96,6 @@ MainWindow::MainWindow(QWidget *parent)
 
   initUpdateFeeds();
 
-  QTimer::singleShot(5000, this, SLOT(slotUpdateAppCheck()));
-
   connect(this, SIGNAL(signalShowNotification(bool)),
           SLOT(showNotification(bool)), Qt::QueuedConnection);
   connect(this, SIGNAL(signalPlaySoundNewNews()),

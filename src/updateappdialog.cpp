@@ -1,3 +1,4 @@
+/* QuiteRSS-Qt (2023) http://github.com/dualword/QuiteRSS-Qt License:GNU GPL*/
 /* ============================================================
 * QuiteRSS is a open-source cross-platform RSS/Atom news feeds reader
 * Copyright (C) 2011-2020 QuiteRSS Team <quiterssteam@gmail.com>
@@ -216,7 +217,7 @@ void UpdateAppDialog::updaterRun()
 void UpdateAppDialog::renderStatistics()
 {
   Settings settings;
-  bool updateCheckEnabled = settings.value("Settings/updateCheckEnabled", true).toBool();
+  bool updateCheckEnabled = settings.value("Settings/updateCheckEnabled", false).toBool();
   if (updateCheckEnabled || showDialog_) {
     QNetworkRequest request(QUrl("https://quiterss.org/files/updates_new/VersionNo.h"));
     reply_ = networkManagerProxy_->get(request);

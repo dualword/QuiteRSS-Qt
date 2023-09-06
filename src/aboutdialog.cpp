@@ -20,6 +20,7 @@
 #include "mainapplication.h"
 #include "settings.h"
 #include "VersionNo.h"
+#include "globals.h"
 
 #include <sqlite3.h>
 #ifdef HAVE_QT5
@@ -155,8 +156,12 @@ AboutDialog::AboutDialog(const QString &lang, QWidget *parent) :
       "<td>" + settings.fileName() + "</td>"
       "</tr><tr>"
       "<td>" + tr("Log file:") + " </td>"
-      "<td>" + mainApp->dataDir() + "/debug.log" + "</td>"
-      "</tr></table>";
+      "<td>" + mainApp->dataDir() + "/debug.log</td></tr>"
+      "<tr><td>" + tr("User Agent file:") + " </td>"
+	  "<td>" + QString(globals.dataDir_).append(QDir::separator()).append("user-agent.txt") + "</td></tr>"
+      "<tr><td>" + tr("User Agent:") + " </td>"
+	  "<td>" + globals.userAgent() + "</td></tr>"
+	  "</table>";
 
   QTextEdit *informationTextEdit = new QTextEdit();
   informationTextEdit->setReadOnly(true);

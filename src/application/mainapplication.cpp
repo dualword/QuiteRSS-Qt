@@ -76,8 +76,6 @@ MainApplication::MainApplication(int &argc, char **argv)
   setTranslateApplication();
   showSplashScreen();
 
-  createGoogleAnalytics();
-
   connectDatabase();
   setProgressSplashScreen(30);
   qWarning() << "Run application 2";
@@ -194,7 +192,7 @@ void MainApplication::createSettings()
 void MainApplication::createGoogleAnalytics()
 {
   Settings settings;
-  bool statisticsEnabled = settings.value("Settings/statisticsEnabled2", true).toBool();
+  bool statisticsEnabled = settings.value("Settings/statisticsEnabled2", false).toBool();
   if (statisticsEnabled) {
     QString clientID;
     if (!settings.contains("GAnalytics-cid")) {
