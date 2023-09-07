@@ -2241,7 +2241,7 @@ void MainWindow::loadSettings()
       settings.value("autocollapseFolder", false).toBool();
 
 #ifndef Q_OS_MAC
-  showMenuBarAct_->setChecked(settings.value("showMenuBar", false).toBool());
+  showMenuBarAct_->setChecked(settings.value("showMenuBar", true).toBool());
 #else
   showMenuBarAct_->setChecked(true);
 #endif

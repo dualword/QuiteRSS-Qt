@@ -22,6 +22,7 @@
 #include "labeldialog.h"
 #include "settings.h"
 #include "VersionNo.h"
+#include "globals.h"
 
 OptionsDialog::OptionsDialog(QWidget *parent)
   : Dialog(parent)
@@ -299,7 +300,7 @@ void OptionsDialog::createGeneralWidget()
   showCloseButtonTab_ = new QCheckBox(tr("Show close button on tab"));
 
   rndUserAgent_ = new QCheckBox(tr("Choose random User Agent from a file"));
-  rndUserAgent_->setToolTip("Data directory/user-agent.txt");
+  rndUserAgent_->setToolTip(QString(globals.dataDir_).append(QDir::separator()).append("user-agent.txt"));
   storeDBMemory_ = new QCheckBox(tr("Store a DB in memory (requires program restart)"));
   storeDBMemory_->setChecked(false);
   saveDBMemFileInterval_ = new QSpinBox();

@@ -298,7 +298,7 @@ void AdBlockManager::load()
     connect(subscription, SIGNAL(subscriptionChanged()), m_matcher, SLOT(update()));
   }
 
-  if (lastUpdate.addDays(5) < QDateTime::currentDateTime()) {
+  if (lastUpdate.addDays(365) < QDateTime::currentDateTime()) {
     QTimer::singleShot(1000 * 60, this, SLOT(updateAllSubscriptions()));
   }
 
